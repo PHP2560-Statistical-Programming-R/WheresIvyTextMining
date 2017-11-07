@@ -4,6 +4,8 @@ library(stringr)
 library(stringi)
 library(rebus)
 library(tidytext)
+
+#QUESTION 3: Most popular words among the tweets that have highest number of retweets in each month?
 tweets<-read.csv("AllFormattedTweets.csv")
 
 tweets$date<-as.Date(tweets$date.stamp)
