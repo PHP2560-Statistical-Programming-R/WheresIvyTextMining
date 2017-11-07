@@ -1,6 +1,6 @@
 
 ```{r, eval=FALSE}
-clean.beer <- read_csv("AllCleanedTweets.csv")
+clean.beer <- read_csv("AllFormattedTweets.csv")
 
 #just want specific data as meta data --> data that would serve as a covariate: beer company and date 
 
