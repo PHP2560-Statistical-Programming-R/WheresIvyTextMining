@@ -1,5 +1,16 @@
+library(twitteR)
+library(ROAuth)
+library(tidyverse)
+library(tidytext)
+library(tm)
+library(lubridate)
+library(stringr)
+library(sentimentr)
+library(stm)
+library(geometry)
+library(rsvd)
+library(Rtsne)
 
-```{r, eval=FALSE}
 clean.beer <- read_csv("AllFormattedTweets.csv")
 
 #just want specific data as meta data --> data that would serve as a covariate: beer company and date 
@@ -26,10 +37,8 @@ beerModelFit <- stm(documents = prep.docs,
                     init.type = "Spectral",
                     seed=5674309) 
 
-```
+#Time to visualize the topics and see how much weekday influences the data. 
 
-Time to visualize the topics and see how much weekday influences the data. 
-```{r}
 beertheta <- as.data.frame(beerModelFit$theta)
 
 beertheta$topic <- apply(beertheta[,1:40], 1, which.max)
