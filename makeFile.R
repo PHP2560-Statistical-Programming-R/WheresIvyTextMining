@@ -12,9 +12,13 @@ dir.create(file.path("graph"), showWarnings = FALSE)
 
 
 ## run all scripts
-zip <- "02903"
-source("01_get_dunkin.R")   # Scrape data
-source("02_get_list.R")     # create useable data list
-source("03_clean_dunkin.R")     ## clean data
-source("04_graph.R")  ## create graph
+## Scraped and cleaned data wrangling in the Data Wrangling File
+## In confidentiality of personal credentials that file is not included on the public repository,
+## However, the finished csv file is attached.
+
+source("YamSentimentAnalysis.R")     # General Sentiment Analysis of the different companies.
+
+
+
+##Knit the combination of all of the script files.
 rmarkdown::render("paper.Rmd", output_format = "html_document")
