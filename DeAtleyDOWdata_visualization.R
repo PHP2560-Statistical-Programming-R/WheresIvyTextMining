@@ -62,10 +62,9 @@ beermeta[8,] #X1 = 8, while row num = 9, but it is displayed correctly, X1 match
 beer.final.DOW <- prep.meta %>%
   left_join(theta.clean, by = "X1")
 
-```
 
 #Data visualization
-```{r}
+
 brand.topic.freq <- beer.final.DOW %>% 
   select(screenName, topic) %>%
   group_by(screenName) %>% 
@@ -74,10 +73,10 @@ brand.topic.freq <- beer.final.DOW %>%
   arrange(desc(n)) 
 
 brand.topic.freq
-```
+
 
 #creating a data frame for each day of the week for blue moon to see what the topics are for day of the week for one company.
-```{r}
+
 DOW.BM.M <-
   beer.final.DOW %>% 
   select(screenName, topic, weekday) %>%
@@ -226,27 +225,25 @@ DOW.GUS.SAT <-
 
 DOW.GUS.SAT
 
-```
+
 
 #Barpolts of the top 5 most frequently tweeted topics on Saturdays by Company Name
-```{r}
-v = data.frame(topic=c('22','35','39','27','28'),n=c(72,59,39,27,27))
-barplot(v$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Blue Moon Beer Co.", ylim = c(0,80),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
 
-w = data.frame(topic=c('22','11','25','3','37'),n=c(26,19,8,7,7))
-barplot(w$n, names.arg=w$topic, main = "Top 5 Tweeted topics on Saturdays by Dos Equis Beer Co.", ylim = c(0,30),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
+v = data.frame(topic=c('22','35','14','26','5'),n=c(89,69,50,26,24))
+barplot(v$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Blue Moon Beer Co.", ylim = c(0,100),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
 
-
-x = data.frame(topic=c('13','12','29','10','34'),n=c(26,19,8,7,7))
-barplot(x$n, names.arg=x$topic, main = "Top 5 Tweeted topics on Saturdays by Budlight Beer Co.", ylim = c(0,30),ylab = "Count", xlab = "Topic",col=c("burlywood1","coral"))
+w = data.frame(topic=c('37','28','36','31','2'),n=c(54,16,11,8,5))
+barplot(w$n, names.arg=w$topic, main = "Top 5 Tweeted topics on Saturdays by Dos Equis Beer Co.", ylim = c(0,60),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
 
 
-y = data.frame(topic=c('8','22','4','7','28'),n=c(5,2,1,1,1))
+x = data.frame(topic=c('33','27','10','37','32'),n=c(111,37,31,22,19))
+barplot(x$n, names.arg=x$topic, main = "Top 5 Tweeted topics on Saturdays by Budlight Beer Co.", ylim = c(0,120),ylab = "Count", xlab = "Topic",col=c("burlywood1","coral"))
+
+
+y = data.frame(topic=c('20','19','38','3', '16'),n=c(8,3,3,1,1))
 barplot(y$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Tsingtao Beer Co.", ylim = c(0,10),ylab = "Count", xlab = "Topic",col=c("burlywood1","coral") )
 
 
-z = data.frame(topic=c('22','16','21','33','17'),n=c(66,39,10,4,3))
-barplot(z$n, names.arg=z$topic, main = "Top 5 Tweeted topics on Saturdays by Guiness US Beer Co.", ylim = c(0,70),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
+z = data.frame(topic=c('11','5','25','29','34'),n=c(114,7,3,3,3))
+barplot(z$n, names.arg=z$topic, main = "Top 5 Tweeted topics on Saturdays by Guiness US Beer Co.", ylim = c(0,120),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
 
-
-```
