@@ -10,6 +10,7 @@ check_packages <- function(names)
   }
 }
 
+#Check Packages
 check_packages("dplyr")
 check_packages("tidytext")
 check_packages("lubridate")
