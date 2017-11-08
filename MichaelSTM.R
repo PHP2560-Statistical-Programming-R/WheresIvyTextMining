@@ -21,6 +21,10 @@ BeerModelFormatted <- stm(document = beerdocs,
                           data = beermeta,
                           init.type = "Spectral")
 
+saveRDS(BeerModelFormatted, "BeerModelFormatted.rds")
+
+BeerModelFormatted <- readRDS("BeerModelFormatted.rds")
+
 thoughts <- findThoughts(BeerModelFormatted, beermeta$reformattedtext, topics=c(48), n=3)
 
 plot(thoughts)
