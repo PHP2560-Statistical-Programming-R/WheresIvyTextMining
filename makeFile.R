@@ -7,6 +7,7 @@
 source("YamSentimentAnalysis.R")     # General Sentiment Analysis of the different companies.
 source("DCWordCloud.R")
 source("LishaGraph.R")
+source("DeAtleyDOWdata_visualization.R")
 
 ##Knit the combination of all of the script files.
 #rmarkdown::render("paper.Rmd", output_format = "html_document")
