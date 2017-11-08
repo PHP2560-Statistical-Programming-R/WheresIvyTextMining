@@ -1,37 +1,3 @@
-##Check which libraries need to be installed
-check_packages <- function(names)
-{
-  for(name in names)
-  {
-    if (!(name %in% installed.packages()))
-      install.packages(name, repos="http://cran.us.r-project.org")
-    
-    library(name, character.only=TRUE)
-  }
-}
-
-#Check Packages
-check_packages("dplyr")
-check_packages("tidytext")
-check_packages("lubridate")
-check_packages("stringr")
-check_packages("stringi")
-check_packages("DataCombine")
-check_packages("rebus")
-check_packages("syuzhet")
-check_packages("ggplot2")
-
-##Twitter Extraction Libraries
-library(dplyr)
-library(tidytext)
-library(lubridate)
-library(stringr)
-library(stringi)
-library(DataCombine)
-library(rebus)
-library(syuzhet)
-library(ggplot2)
-
 ##Load Data from Beer Tweets Data Wrangling RMD file
 ##Because of private credentials, Data Wrangling file is
 AllBeerTweets <- read.csv("AllFormattedTweets.csv")
@@ -44,23 +10,31 @@ TweetsSent <- AllBeerTweets %>%
 
 head(TweetsSent)
 
+dir.create("graph/",showWarnings = F)
+png('graph/SentHist.png')
+
+
 #Density Plot
-sentHist <- ggplot(TweetsSent, aes(x = sentiment, fill = "red"))
-sentHist + geom_density(position = "identity", alpha = 0.5) +
+ggplot(TweetsSent, aes(x = sentiment, fill = "red")) + 
+  geom_density(position = "identity", alpha = 0.5) +
   theme_bw() +
   theme(legend.position = "none") + 
   ggtitle("Density of Sentiment Scores for all beer companies") + 
   xlab("Sentiment Score") + ylab("Density")
+dev.off()
+
+png('graph/SentHistIndividual.png')
 
 #Individual Density Plot
-sentHistI <- ggplot(TweetsSent, aes(x = sentiment, fill = "green"))
-
-sentHistI + geom_density(position = "identity", alpha = 0.5) +
+ggplot(TweetsSent, aes(x = sentiment, fill = "green")) + 
+  geom_density(position = "identity", alpha = 0.5) +
   theme_bw() +
   theme(legend.position = "none") + 
   ggtitle("Density of Sentiment Scores for individual beer companies") + 
   xlab("Sentiment Score") + ylab("Density") +
   facet_wrap(~screenName)
+
+dev.off()
 
 #Summarise Average Sentiment Scores
 testdf <- TweetsSent %>% 
@@ -71,10 +45,11 @@ testdf <- TweetsSent %>%
 #Relevel the days of the week to progress towards weekend
 levels(testdf$weekday) <- c("Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat")
 
-#Individual Sentiment Plot per weekday
-sentimentplot <- ggplot(testdf, aes(weekday, Mean)) 
 
-sentimentplot +
+png('graph/SentWeekday.png')
+
+#Individual Sentiment Plot per weekday
+ggplot(testdf, aes(weekday, Mean)) +
   geom_point() +
   facet_wrap(~screenName) + 
   theme_bw() +
@@ -83,6 +58,6 @@ sentimentplot +
   ylab("Average Sentiment Score") + xlab("Day of the Week") +
   facet_wrap(~screenName)
 
-
+dev.off()
 
 

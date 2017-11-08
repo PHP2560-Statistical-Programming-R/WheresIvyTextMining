@@ -5,8 +5,8 @@
 ## However, the finished csv file is attached.
 
 source("YamSentimentAnalysis.R")     # General Sentiment Analysis of the different companies.
-
-
+source("DCWordCloud.R")
+source("LishaGraph.R")
 
 ##Knit the combination of all of the script files.
-rmarkdown::render("paper.Rmd", output_format = "html_document")
+#rmarkdown::render("paper.Rmd", output_format = "html_document")
