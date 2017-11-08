@@ -15,4 +15,4 @@ source("DeAtleyDOWdata_visualization.R")
 source("MichaelSTM.R")
 
 ##Knit the combination of all of the script files.
-rmarkdown::render("paper.Rmd", output_format = "html_document")
+rmarkdown::render("Report of Beer Tweets.Rmd", output_format = "html_document")

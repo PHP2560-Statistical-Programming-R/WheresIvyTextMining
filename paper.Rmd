@@ -37,3 +37,5 @@ table<-as.data.frame(table(retweets$screenName))
 names(table) <-c("Brand", "Count")
 knitr::kable(table)
 ```
+
+

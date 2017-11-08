@@ -1,30 +1,52 @@
 ---
 title: "Report of Beer Tweets"
-author: "Derrick Yam"
+author: "Team Where's Ivy"
 date: "November 8, 2017"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+For this project we were interested in exploring twitter data on beer companies. Our inital thought was to look at twitter marketing aimed toward youth. With limited access to age data from twitter (a paid data source) we redefined our questions listed below.
 
-## R Markdown
+# Process
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+We choose 5 brands of beer from different multinational companies around the world for our analysis.Budlight, Dos Equis, Guinness U.S., Blue Moon and Tsingtao. Each of us cleaned the data for our assigned beer companies and we merged our clean data. Our data wrangleing file was sent to you separately due to twitter authorization code privacy.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# Our data visualization files answering our respective questions above are attached:
 
-```{r cars}
-summary(cars)
-```
+* The only file you need to run is the makefile.R
 
-## Including Plots
+# Questions
 
-You can also embed plots, for example:
+1. Derrick, Sentiment Analysis by day of the week, Does sentiment analysis change over the course of the week by each beer company?
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+Here is the density of sentiment scores for all beer companies. As we see, the vast majority of sentiments are positive, which makes sense for the alcohol industry. However, once we break it down per individual company, we see that they differ a little bit. Most notable, is how much more positive the Blue Moon tweets are than every other company. Also interesting to note that the positivity does not increase that significantly as the week approaches the weekend. This significance could be tested with a linear regression model.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+![Density of Sentiment Scores for all beer companies](png('graph/SentHist.png'))
+
+![Density of Sentiment Scores for individual beer companies](png('graph/SentHistIndividual.png'))
+
+![Average Sentiment Score as the week progresses to the weekend](png('graph/SentWeekday.png'))
+
+
+2. Michael, Thematic Topic Modeling, What are the most popular topics overall? 
+
+
+
+
+3. Tess, What are the most popular topics on Saturdays across the 5 companies? 
+
+
+4. Lisha, Among the highest retweets each month, which are the most popular words? 
+
+Below is the popular words among tweets with highest retweets in each month:
+![Common words among tweets with highest number of retweets monthly](graph/plot.png)
+
+
+5. David, What are the most frequently used words by each company?
+
+
+
+
+
+
+
