@@ -1,3 +1,24 @@
+check_packages <- function(names)
+{
+  for(name in names)
+  {
+    if (!(name %in% installed.packages()))
+      install.packages(name, repos="http://cran.us.r-project.org")
+    
+    library(name, character.only=TRUE)
+  }
+}
+
+# Check Packages
+check_packages("dplyr")
+check_packages("tidytext")
+check_packages("lubridate")
+check_packages("stringr")
+check_packages("tm")
+check_packages("wordcloud")
+check_packages("ggplot2")
+
+# Extraction Libraries
 library(stringr)
 library(dplyr)
 library(tidytext)
