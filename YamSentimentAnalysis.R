@@ -44,6 +44,10 @@ TweetsSent <- AllBeerTweets %>%
 
 head(TweetsSent)
 
+dir.create("graph/",showWarnings = F)
+png('graph/SentHist.png')
+
+
 #Density Plot
 sentHist <- ggplot(TweetsSent, aes(x = sentiment, fill = "red"))
 sentHist + geom_density(position = "identity", alpha = 0.5) +
@@ -51,6 +55,8 @@ sentHist + geom_density(position = "identity", alpha = 0.5) +
   theme(legend.position = "none") + 
   ggtitle("Density of Sentiment Scores for all beer companies") + 
   xlab("Sentiment Score") + ylab("Density")
+
+png('graph/SentHistIndividual.png')
 
 #Individual Density Plot
 sentHistI <- ggplot(TweetsSent, aes(x = sentiment, fill = "green"))
@@ -71,6 +77,11 @@ testdf <- TweetsSent %>%
 #Relevel the days of the week to progress towards weekend
 levels(testdf$weekday) <- c("Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat")
 
+
+png('graph/SentWeekday.png')
+
+dev.off()
+
 #Individual Sentiment Plot per weekday
 sentimentplot <- ggplot(testdf, aes(weekday, Mean)) 
 
@@ -83,6 +94,6 @@ sentimentplot +
   ylab("Average Sentiment Score") + xlab("Day of the Week") +
   facet_wrap(~screenName)
 
-
+dev.off()
 
 
