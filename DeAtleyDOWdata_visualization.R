@@ -236,8 +236,13 @@ dir.create("graph/",showWarnings = F)
 
 
 v = data.frame(topic=c('22','35','14','26','5'),n=c(89,69,50,26,24))
-barplot(v$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Blue Moon Beer Co.", ylim = c(0,100),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
-ggsave('graph/Blue Moon_Top5_Topics_Sat.png')
+
+ggplot(v) +
+  geom_bar(mapping = aes(x=reorder(word,n),y=n),stat="identity")+xlab("words") +ylab("Frequency") + coord_flip()+
+  
+  ggsave('graph/Blue Moon Top 5 Topics on Sat.png')
+
+#barplot(v$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Blue Moon Beer Co.", ylim = c(0,100),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
 
 
 
@@ -257,7 +262,7 @@ ggsave('graph/Budlight Top 5 Topics on Sat.png')
 
 
 y = data.frame(topic=c('20','19','38','3', '16'),n=c(8,3,3,1,1))
-barplot(y$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Tsingtao Beer Co.", ylim = c(0,10),ylab = "Count", xlab = "Topic",col=c("burlywood1","coral") )
+geom_bar(y$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Tsingtao Beer Co.", ylim = c(0,10),ylab = "Count", xlab = "Topic",col=c("burlywood1","coral") )
 
 ggsave('graph/Tsingtao Top 5 Topics on Sat.png')
 
