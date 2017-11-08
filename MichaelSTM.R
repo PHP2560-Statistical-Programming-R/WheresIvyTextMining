@@ -14,14 +14,6 @@ beervocab <- out$vocab
 beermeta <- out$meta
 
 #tested various models, searchK, and K=53 is decent with the new reformatted tweets 
-BeerModelFormatted <- stm(document = beerdocs,
-                          vocab = beervocab,
-                          K =  53,
-                          prevalence =~ screenName + weekday,
-                          data = beermeta,
-                          init.type = "Spectral")
-
-saveRDS(BeerModelFormatted, "BeerModelFormatted.rds")
 
 BeerModelFormatted <- readRDS("BeerModelFormatted.rds")
 
