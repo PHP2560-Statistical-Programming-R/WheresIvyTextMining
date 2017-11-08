@@ -1,23 +1,3 @@
-check_packages <- function(names)
-{
-  for(name in names)
-  {
-    if (!(name %in% installed.packages()))
-      install.packages(name, repos="http://cran.us.r-project.org")
-    
-    library(name, character.only=TRUE)
-  }
-}
-
-# Check Packages
-check_packages("dplyr")
-check_packages("tidytext")
-check_packages("lubridate")
-check_packages("stringr")
-check_packages("tm")
-check_packages("wordcloud")
-check_packages("ggplot2")
-
 # Extraction Libraries
 library(stringr)
 library(dplyr)
@@ -106,15 +86,29 @@ png('graph/budlightCloud.png')
 # Creating a wordcloud plot with a decreasing word frequency 
 wordcloud(words = names(budlight.freq), freq = budlight.freq, max.words = 100, min.freq = 5,
           random.order = F, colors = color)
+dev.off()
+
+png('graph/DosEquisCloud.png')
 wordcloud(words = names(DosEquis.freq), freq = DosEquis.freq, max.words = 100, min.freq = 5,
           random.order = F, colors = color)
+dev.off()
+
+png('graph/GuinnessUSCloud.png')
 wordcloud(words = names(GuinnessUS.freq), freq = GuinnessUS.freq, max.words = 100, min.freq = 5,
           random.order = F, colors = color)
+dev.off()
+
+png('graph/tsingtaoCloud.png')
 wordcloud(words = names(tsingtao.freq), freq = tsingtao.freq, max.words = 100, min.freq = 1,
           random.order = F, colors = color)
+dev.off()
+
+png('graph/BlueMoonBrewCoCloud.png')
 wordcloud(words = names(BlueMoonBrewCo.freq), freq = BlueMoonBrewCo.freq, max.words = 100, min.freq = 5,
           random.order = F, colors = color)
+dev.off()
+
+png('graph/AllBeerCloud.png')
 wordcloud(words = names(All.freq), freq = All.freq, max.words = 150, min.freq = 5,
           random.order = F, colors = color)
-
 dev.off()
