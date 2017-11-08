@@ -100,6 +100,7 @@ All.freq <- sort(rowSums(All.m), decreasing = T)
 color <- brewer.pal(9, "BuGn")[-(1:4)]
 
 # Creates a png file within the graph folder for the wordcloud
+dir.create("graph/",showWarnings = F)
 png('graph/budlightCloud.png')
 
 # Creating a wordcloud plot with a decreasing word frequency 
@@ -115,3 +116,5 @@ wordcloud(words = names(BlueMoonBrewCo.freq), freq = BlueMoonBrewCo.freq, max.wo
           random.order = F, colors = color)
 wordcloud(words = names(All.freq), freq = All.freq, max.words = 150, min.freq = 5,
           random.order = F, colors = color)
+
+dev.off()
