@@ -256,7 +256,7 @@ dev.off()
 
 dev.copy(png,'graph/Tsingtao Top 5 Topics on Sat.png')
 y = data.frame(topic=c('20','19','38','3', '16'),n=c(8,3,3,1,1))
-geom_bar(y$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Tsingtao Beer Co.", ylim = c(0,10),ylab = "Count", xlab = "Topic",col=c("burlywood1","coral") )
+barplot(y$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Tsingtao Beer Co.", ylim = c(0,10),ylab = "Count", xlab = "Topic",col=c("burlywood1","coral") )
 
 dev.off()
 
