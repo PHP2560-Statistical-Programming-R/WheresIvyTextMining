@@ -30,21 +30,73 @@ Here is the density of sentiment scores for all beer companies. As we see, the v
 
 2. Michael, Thematic Topic Modeling, What are the most popular topics overall? 
 
+I implemented structural topic modelling, which allows the use of metadata in the modelling process. After running the model a couple of times, I found the appropriate number of topics to be about 53. From there, I did some basic data wrangling to find out which topic was most frequently tweet, and by which company. I crossed referenced that with the most favorited topic (again by company). Unsurprisingly I found that the most favorited topics tend to be the ones they tweet about the most.  However, what was interesting to see was how DosEquis, who didn't tweet as much as the others, had the best ratio for tweets to favorites, and the topic of these tweets was about "The Most Interesting Man," whereas the others mostly promoted their new beers, or some kind of brand competition. The one that did the second best was Budlight, who tweeted about football. 
+From this, I could tell that brands needs to work on their social media identity (or identity in general) if they want more engagement.
 
+![Most Popular Topics by Frequency.](png('graph/topicfreq.png'))
+
+![Most Tweeted & Favorited Topic - Blue Moon](png('graph/bluemoon.png'))
+
+![Most Tweeted & Favorited Topic - Guiness](png('graph/Guiness.png'))
+
+![Most Tweeted & Favorited Topic - TsingTao](png('graph/tsingtao.png'))
+
+![Most Tweeted & Favorited Topic - Bud Light](png('graph/budlight.png'))
+
+![Most Tweeted & Favorited Topic - Dos Equis](png('graph/DosEquis.png'))
 
 
 3. Tess, What are the most popular topics on Saturdays across the 5 companies? 
 
+As we would expect, all 5 companies have different "top 5 topics" that are tweeted about the most. Budlight and Blue Moon consistently tweet about all 5 of their top 5 topics on twitter. There is less variation in the counts across the five respective topics for both of these beer companies. This contrasts with Dos Equis, Tsingtao and Guiness US which each tweet primarily about one topic the most. Among all 5 companies Tsingtao had the least amount of tweets across their top 5 topics (n= 16), and Blue Moon had the most tweets across their top 5 topics (n=258). 
+
+![Top 5 Tweeted topics on Saturdays by Blue Moon Beer Co.](png('graph/Blue Moon Beer Top 5 Topics on Sat Final.png'))
+
+![Top 5 Tweeted topics on Saturdays by Dos Equis Beer Co.](png('graph/Dos Equis Top 5 Topics on Sat Final.png'))
+
+![Top 5 Tweeted topics on Saturdays by Budlight Beer Co.](png('graph/Budlight Top 5 Topics on Sat Final.png'))
+
+![Top 5 Tweeted topics on Saturdays by Tsingtao Beer Co.](png('graph/Tsingtao Top 5 Topics on Sat Final.png'))
+
+![Top 5 Tweeted topics on Saturdays by Guinness US Beer Co.](png('graph/Guinness US Top 5 Topics on Sat Final.png'))
+
+
 
 4. Lisha, Among the highest retweets each month, which are the most popular words? 
 
+The most popular words among tweets with monthly highest retweets are world and dos. Both of them appear 6 times. Dos is the brand name, and in the past few years, 50 tweets published by DosEquis got highest retweets in the month they had been published, which exceeds all other companies' tweets. We can conclude that DosEquis is the most influential twitter account among the five beer companies' accounts. Other popular words such as game, party, and night describe the time and places that people drink beers, which corresponds to our impression. 
+
 Below is the popular words among tweets with highest retweets in each month:
-![Common words among tweets with highest number of retweets monthly](graph/plot.png)
+
+![*Fig.1*Common words among tweets with highest number of retweets monthly](graph/plot.png)
+
+The table below display the number of months each company has the highest retweets
+
+```{r, echo=FALSE}
+library(dplyr)
+load("data/retweets.Rda")
+table<-as.data.frame(table(retweets$screenName))
+names(table) <-c("Brand", "Count")
+knitr::kable(table)
+```
 
 
 5. David, What are the most frequently used words by each company?
 
 
+The words most frequently used throughout all 5 companies were "Beer" and "Cheers" among all of the beer companies we analyzed. However, some companies such as Guinness and Tsingtao also tweeted their own name brand at a high frequency while Dos Equis' most frequently tweeted the phrase 'staythirsty' in reference to their brand's catch phrase.
+
+![Most Frequently tweeted words by Blue Moon Beer Co.](png('graph/BlueMoonBeerCoCloud.png'))
+
+![Most Frequently tweeted words by Dos Equis Beer Co.](png('graph/DosEquisCloud.png'))
+
+![Most Frequently tweeted words by Budlight Beer Co.](png('graph/budlightCloud.png'))
+
+![Most Frequently tweeted words by Tsingtao Beer Co.](png('graph/tsingtaoCloud.png'))
+
+![Most Frequently tweeted words by Guinness US Beer Co..](png('graph/GuinnessUSCloud.png'))
+
+![Most Frequently tweeted words by All 5 Beer Companies](png('graph/AllBeerCloudl.png'))
 
 
 
