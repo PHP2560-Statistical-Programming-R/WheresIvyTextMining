@@ -234,36 +234,35 @@ DOW.GUS.SAT
 
 dir.create("graph/",showWarnings = F)
 
-dev.copy(png, 'graph/Blue Moon Beer Top 5 Topics on Sat.png')
-v = data.frame(topic=c('22','35','14','26','5'),n=c(89,69,50,26,24))
-barplot(v$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Blue Moon Beer Co.", ylim = c(0,100),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
-
+dev.copy(png,'graph/Blue Moon Beer Top 5 Topics on Sat Final.png')
+v = data.frame(topic=c('23','35','14','26','5'), n=c(89,69,50,26,24))
+barplot(v$n, names.arg=v$topic, main = "Top 5 Tweeted topics on Saturdays by Blue Moon Beer Co.", ylim = c(0,100),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
 dev.off()
 
 
-dev.copy(png, 'graph/Dos Equis Top 5 Topics on Sat.png')
+dev.copy(png, 'graph/Dos Equis Top 5 Topics on Sat Final.png')
 w = data.frame(topic=c('37','28','36','31','2'),n=c(54,16,11,8,5))
 barplot(w$n, names.arg=w$topic, main = "Top 5 Tweeted topics on Saturdays by Dos Equis Beer Co.", ylim = c(0,60),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
 
 dev.off()
 
 
-dev.copy(png,'graph/Budlight Top 5 Topics on Sat.png')
+dev.copy(png,'graph/Budlight Top 5 Topics on Sat Final.png')
 x = data.frame(topic=c('33','27','10','37','32'),n=c(111,37,31,22,19))
 barplot(x$n, names.arg=x$topic, main = "Top 5 Tweeted topics on Saturdays by Budlight Beer Co.", ylim = c(0,120),ylab = "Count", xlab = "Topic",col=c("burlywood1","coral"))
 
 dev.off()
 
-dev.copy(png,'graph/Tsingtao Top 5 Topics on Sat.png')
+dev.copy(png,'graph/Tsingtao Top 5 Topics on Sat Final.png')
 y = data.frame(topic=c('20','19','38','3', '16'),n=c(8,3,3,1,1))
 barplot(y$n, names.arg=y$topic, main = "Top 5 Tweeted topics on Saturdays by Tsingtao Beer Co.", ylim = c(0,10),ylab = "Count", xlab = "Topic",col=c("burlywood1","coral") )
 
 dev.off()
 
 
-dev.copy(png,'graph/Guiness US Top 5 Topics on Sat.png')
+dev.copy(png,'graph/Guinness US Top 5 Topics on Sat Final.png')
 
 z = data.frame(topic=c('11','5','25','29','34'),n=c(114,7,3,3,3))
-barplot(z$n, names.arg=z$topic, main = "Top 5 Tweeted topics on Saturdays by Guiness US Beer Co.", ylim = c(0,120),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
+barplot(z$n, names.arg=z$topic, main = "Top 5 Tweeted topics on Saturdays by Guinness US Beer Co.", ylim = c(0,120),ylab = "Count", xlab = "Topic", col=c("burlywood1","coral"))
 
 dev.off()
