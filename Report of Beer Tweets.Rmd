@@ -96,8 +96,3 @@ The words most frequently used throughout all 5 companies were "Beer" and "Cheer
 ![Most Frequently tweeted words by Guinness US Beer Co..](graph/GuinnessUSCloud.png)
 
 ![Most Frequently tweeted words by All 5 Beer Companies](graph/AllBeerCloud.png)
-
-
-
-
-
