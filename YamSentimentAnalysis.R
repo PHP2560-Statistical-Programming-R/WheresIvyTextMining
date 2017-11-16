@@ -25,8 +25,10 @@ dev.off()
 
 png('graph/SentHistIndividual.png')
 
+TweetsSent2 <- TweetsSent
+
 #Individual Density Plot
-ggplot(TweetsSent, aes(x = sentiment, fill = "green")) + 
+ggplot(TweetsSent2, aes(x = sentiment, fill = "green")) + 
   geom_density(position = "identity", alpha = 0.5) +
   theme_bw() +
   theme(legend.position = "none") + 
